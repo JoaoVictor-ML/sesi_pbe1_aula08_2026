@@ -18,9 +18,43 @@ const listar = (req, res) => {
     res.json(pedidos)
 }
 
-const alterar = (req, res) => { }
+const alterar = (req, res) => { 
+    const id = req.params.id
+    const dados = req.body
+    let status = 0
 
-const excluir = (req, res) => { }
+    pedidos.forEach((pedido) => {
+        if(pedido.id == id){
+            pedido.produto = dados.produto
+            pedido.preco = dados.preco
+            pedido.quantidade = dados.quantidade
+            status = 1
+        }
+    })
+    if(status == 1) {
+        res.send("Pedido atualizado com sucesso")
+    }else{
+        res.status(404).send("Erro ao atualizar pedido")
+    }
+}
+
+const excluir = (req, res) => { 
+    const id = req.params.id
+    let status = 0
+
+    pedidos.forEach((pedido, indice) => {
+       if(pedido.id == id){
+        status = 1
+        pedidos.splice(indice, 1)
+       }
+    })
+    if(status == 1) {
+        res.send("Pedido excluido com sucesso")
+    }else{
+        res.status(404).send("Erro ao excluir pedido")
+    }
+
+}
 
 module.exports = {
     criar, listar, alterar, excluir

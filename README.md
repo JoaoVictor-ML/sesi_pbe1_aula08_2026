@@ -2,6 +2,10 @@
 Back-End com duas coleções mockup JSON, clientes e pedidos, CRUD, para aprender MVC e UML diagrama de classe
 ## Diagrama
 ![UML DC](uml.png)
+## Post (Alterar)
+![POST](post.png)
+## Delete (Excluir)
+![DELETE](delete.png)
 ## Tecnologias
 - Node.js
 - VsCode (Thunder Client)
